@@ -17,6 +17,7 @@ function mod() {
     const input = document.getElementById("input");
     const resultado = parseFloat(input.value);
     input.value = resultado < 0 ? -resultado : resultado;
+    rellenar_info();
 }
 
 // Función para calcular el factorial del número X introducido en el input
@@ -28,6 +29,7 @@ function fact() {
         resultado *= i;
     }
     input.value = resultado;
+    rellenar_info();
 }
 
 // Variables globales para guardar el número tecleado en el input y el operador pulsado
@@ -40,6 +42,7 @@ function add() {
     operando1 = parseFloat(input.value);
     operador = "+";
     input.value = "";
+    rellenar_info();
 }
 
 // Función para guardar el número tecleado en el input y el operador pulsado (en este caso, multiplicación)
@@ -48,6 +51,7 @@ function mul() {
     operando1 = parseFloat(input.value);
     operador = "*";
     input.value = "";
+    rellenar_info();
 }
 
 // Función para calcular el resultado de la operación indicada por el operador guardado en las variables globales y mostrar el resultado en el input
@@ -68,6 +72,7 @@ function eq() {
     input.value = resultado;
     operando1 = null;
     operador = null;
+    rellenar_info();
 }
 
 // Función para calcular la suma de los elementos introducidos en el input en formato CSV
@@ -79,6 +84,7 @@ function sumatorio() {
         resultado += parseFloat(numeros[i]);
     }
     input.value = resultado;
+    rellenar_info();
 }
 
 // Función para ordenar los elementos introducidos en el input en formato CSV en orden ascendente
@@ -89,6 +95,7 @@ function ordenar() {
         return parseFloat(a) - parseFloat(b);
     });
     input.value = numeros.join(",");
+    rellenar_info();
 }
 
 // Función para invertir el orden de los elementos introducidos en el input en formato CSV
@@ -97,6 +104,7 @@ function revertir() {
     const numeros = input.value.split(",");
     numeros.reverse();
     input.value = numeros.join(",");
+    rellenar_info();
 }
 
 // Función para quitar el último número y la coma de los introducidos en el input en formato CSV
@@ -105,6 +113,7 @@ function quitar() {
     const numeros = input.value.split(",");
     numeros.pop();
     input.value = numeros.join(",");
+    rellenar_info();
 }
 
 // Función para validar la entrada del usuario antes de hacer cualquier operación y mostrar "Error" en el input si no es algo soportado por la calculadora
@@ -131,17 +140,14 @@ document.getElementById("cuadrado").addEventListener("click", function () {
 
 document.getElementById("modulo").addEventListener("click", function () {
     mod();
-    rellenar_info();
 });
 
 document.getElementById("factorial").addEventListener("click", function () {
     fact();
-    rellenar_info();
 });
 
 document.getElementById("suma").addEventListener("click", function () {
     add();
-    rellenar_info();
 });
 
 document.getElementById("resta").addEventListener("click", function () {
@@ -154,7 +160,6 @@ document.getElementById("resta").addEventListener("click", function () {
 
 document.getElementById("multiplicacion").addEventListener("click", function () {
     mul();
-    rellenar_info();
 });
 
 document.getElementById("division").addEventListener("click", function () {
@@ -183,27 +188,22 @@ document.getElementById("resto").addEventListener("click", function () {
 
 document.getElementById("igual").addEventListener("click", function () {
     eq();
-    rellenar_info();
 });
 
 document.getElementById("sumatorio").addEventListener("click", function () {
     sumatorio();
-    rellenar_info();
 });
 
 document.getElementById("ordenar").addEventListener("click", function () {
     ordenar();
-    rellenar_info();
 });
 
 document.getElementById("revertir").addEventListener("click", function () {
     revertir();
-    rellenar_info();
 });
 
 document.getElementById("quitar").addEventListener("click", function () {
     quitar();
-    rellenar_info();
 });
 
 // Event listener para validar la entrada del usuario antes de hacer cualquier operación
